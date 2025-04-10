@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <meta property="og:title" content="Wedding Invitation">
+  <meta property="og:description" content="Indra & Hanin Wedding Invitation">
+  <meta property="og:image" content="image6.jpeg"> <!-- Specify the URL of your preview image -->
+  <meta property="og:image:width" content="50"> <!-- Width of the image in pixels -->
+  <meta property="og:image:height" content="50"> <!-- Height of the image in pixels -->
+  <link rel="icon" href="logo2.svg" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Lateef:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+  <!-- Cover Section -->
+  <section id="cover">
+    <div class="cover-content">
+      <p>You are invited</p>
+      <div class="separator-cover"></div>
+      <h1>Indra</h1>
+      <h1>&</h1>
+      <h1>Hanin</h1>
+      <p>Kepada Yth.</p>
+      <p id="guestName">Guest</p>
+      <div class="separator-cover"></div>
+      <button id="openInvitation">Open Invitation</button>
+    </div>
+  </section>
+
+  <!-- Invitation Sections -->
+  <section id="invitation" class="hidden">
+    <!-- NAVIGASI -->
+    <nav>
+      <ul>
+        <li><a href="#section1"><i class="fas fa-home"></i></a></li>
+        <li><a href="#section3"><i class="fas fa-user"></i></a></li>
+        <li><a href="#section4"><i class="fas fa-calendar"></i></a></li>
+        <li><a href="#section7"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="#section8"><i class="fas fa-gift"></i></a></li>
+        <!-- Tambahkan tombol play/pause di sini -->
+        <li><a href="javascript:void(0)" id="playPauseButton">
+          <i id="playPauseIcon" class="fas fa-pause"></i>
+        </a></li>
+      </ul>
+    </nav>
+    
+    <!-- Elemen audio -->
+    <audio id="weddingMusic" src="Perfect.mp3"></audio> <!-- Ganti dengan URL musik -->
+    
+    <!-- Section 1: Bride & Groom -->
+    <section class="section" id="section1">
+      <div class="section1-content">
+        <h2 class="fade-in">The Wedding of</h2>
+        <h1 class="fade-in">Indra & Hanin</h1>
+      </div>
+    </section>
+
+    <!-- Section 2: Invitation and Countdown -->
+<section class="section" id="section2">
+    <div class="invitation-content">
+      <h2 class="fade-in">You are Invited!</h2>
+      <p class="fade-in">We want you to be part of this special moment</p>
+  
+      <!-- Countdown Timer -->
+      <div id="countdown">
+        <div class="time-box fade-in">
+          <span id="days">00</span>
+          <span>Days</span>
+        </div>
+        <div class="time-box fade-in">
+          <span id="hours">00</span>
+          <span>Hours</span>
+        </div>
+        <div class="time-box fade-in">
+          <span id="minutes">00</span>
+          <span>Minutes</span>
+        </div>
+        <div class="time-box fade-in">
+          <span id="seconds">00</span>
+          <span>Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Section 3: Profile Pengantin -->
+<section class="section" id="section3">
+  <div class="section-title">
+    <div class="lottie-container-profile fade-in" id="lottie-profile"></div> <!-- Lottie animation -->
+    <h2 class="fade-in">Our Profiles</h2>
+  </div>
+  <div class="profile-container">
+    <!-- Profile Pengantin Wanita -->
+    <div class="profile bride-profile">
+      <img src="image3.jpeg" alt="Bride" class="profile-photo fade-in"> <!-- Ganti path dengan path foto pengantin wanita -->
+      <h3 class="name fade-in">Indra Darwansah Putra</h3> <!-- Nama Pengantin Wanita -->
+      <p class="fade-in">Putra Pertama Dari</p>
+      <div class="parents">
+        <span class="father-name fade-in">Bapak Sinardi Adi Saputra</span> <!-- Nama Bapak -->
+        <span class="separator-parents fade-in"></span>
+        <span class="mother-name fade-in">Sri Kadarsih Dahmayanti</span> <!-- Nama Ibu -->
+      </div>
+      <a href="https://www.instagram.com/indrasaputra.___?igsh=MWo4dTc0NTN3dnR0Ng==" target="_blank" class="instagram-button fade-in">@indrasaputra.__</a> <!-- Tombol Instagram -->
+    </div>
+
+    <!-- Profile Pengantin Pria -->
+    <div class="profile groom-profile">
+      <img src="image7.jpeg" alt="Groom" class="fade-in profile-photo"> <!-- Ganti path dengan path foto pengantin pria -->
+      <h3 class="name fade-in">Hanin Tasya Farizna</h3> <!-- Nama Pengantin Pria -->
+      <p class="fade-in">Putri Pertama Dari</p>
+      <div class="parents">
+        <span class="father-name fade-in">Bapak Ahmad Rizalihadi</span> <!-- Nama Bapak -->
+        <span class="separator-parents fade-in"></span>
+        <span class="mother-name fade-in">Ibu Erna Komala</span> <!-- Nama Ibu -->
+      </div>
+      <a href="https://www.instagram.com/hanintf_?igsh=MTFoMWxqZWpocXRzaA==" target="_blank" class="instagram-button fade-in">@hanintf_</a> <!-- Tombol Instagram -->
+    </div>
+  </div>
+</section>
+
+  
+<!-- Section 4: Akad dan Resepsi -->
+<section class="section" id="section4">
+<div>
+  <div class="section-title">
+    <h2 class="fade-in">Wedding Details</h2>
+  </div>
+  <div class="event-details">
+    <div class="lottie-container-ceremony fade-in" id="lottie-ceremony"></div> <!-- Lottie animation for Akad -->
+    <h2>AKAD</h2>
+    <div class="date">
+      <div class="day fade-in">Jumat</div> <!-- Hari -->
+      <div class="month-date-time">
+        <span class="month-date fade-in">18 APR</span> <!-- Bulan dan tanggal -->
+        <span class="separator fade-in"></span> <!-- Separator -->
+        <span class="time fade-in">08:30 AM</span> <!-- Jam -->
+      </div>
+    </div>
+    <div class="location fade-in">Rumah Mempelai Pria - Lembuak Timur</div> <!-- Lokasi -->
+    <a href="-" target="_blank" class="map-button fade-in">View Map</a>
+  </div>
+</div>
+
+<div>
+  <div class="event-details">
+    <div class="lottie-container-reception fade-in" id="lottie-reception"></div> <!-- Lottie animation for Resepsi -->
+    <h2 class="fade-in">RESEPSI</h2>
+    <div class="date">
+      <div class="day fade-in">Rabu</div> <!-- Hari -->
+      <div class="month-date-time">
+        <span class="month-date fade-in">23 APR</span> <!-- Bulan dan tanggal -->
+        <span class="separator fade-in"></span> <!-- Separator -->
+        <span class="time fade-in">11:00 AM</span> <!-- Jam -->
+      </div>
+    </div>
+    <div class="location fade-in">Rumah Mempelai Wanita - Gerung</div> <!-- Lokasi -->
+    <a href="https://maps.app.goo.gl/T1CrJGT8nkhXAZzm8" target="_blank" class="map-button fade-in">View Map</a>
+  </div>
+</div>
+
+</section>
+
+
+<!-- Section 5: Ayat Al-Qur'an and Translation -->
+<section class="section" id="section5">
+  <div class="quran-content">
+    <div class="lottie-container-quran fade-in" id="lottie-quran"></div> <!-- Lottie animation for the title -->
+    <h2>We Found Love</h2>
+    <p class="arabic-text fade-in">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+    </p>
+    <p class="translation-text fade-in">
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."
+    </p>
+    <p class="surah fade-in">(QS. Ar-Rum Ayat 21)</p>
+  </div>
+</section>
+
+<!-- Section 6: Gallery like Pinterest -->
+<section class="section" id="section6">
+  <div class="section-title">
+    <div class="lottie-container-gallery fade-in" id="lottie-gallery"></div>
+    <h2 class="fade-in">Gallery</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="image1.jpeg" alt="Image 1" class="fade-in gallery-item" onclick="openModal(1)">
+    <img src="image2.jpeg" alt="Image 2" class="fade-in gallery-item" onclick="openModal(2)">
+    <img src="image3.jpeg" alt="Image 3" class="fade-in gallery-item" onclick="openModal(3)">
+    <img src="image4.jpeg" alt="Image 4" class="fade-in gallery-item" onclick="openModal(4)">
+    <img src="image5.jpeg" alt="Image 5" class="fade-in gallery-item" onclick="openModal(5)">
+    <img src="image6.jpeg" alt="Image 6" class="fade-in gallery-item" onclick="openModal(6)">
+    <img src="image7.jpeg" alt="Image 7" class="fade-in gallery-item" onclick="openModal(7)">
+    <img src="image8.jpeg" alt="Image 8" class="fade-in gallery-item" onclick="openModal(8)">
+    <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+  </div>
+
+  <!-- Fullscreen Modal -->
+  <div id="galleryModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img class="modal-image" id="modalImage">
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: RSVP and Messages -->
+<section class="section" id="section7">
+  <div class="section-title">
+    <div class="lottie-container-rsvp fade-in" id="lottie-rsvp"></div> <!-- Lottie animation for the title -->
+    <h2 class="fade-in">RSVP & Messages</h2>
+  </div>
+
+  <!-- Form to submit RSVP and messages -->
+  <form id="rsvpForm">
+    <div class="form-group fade-in">
+      <input type="text" id="guestNameRSVP" placeholder="Nama" required>
+    </div>
+    <div class="form-group fade-in">
+      <textarea id="guestMessage" placeholder="Do'a & Ucapan" required></textarea>
+    </div>
+    <div class="form-group fade-in">
+      <label for="attendance">Will you attend?</label>
+      <select id="attendance" required>
+        <option value="" disabled selected>Pilih Kehadiran</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+        <option value="Insyaallah">Insyaallah</option>
+      </select>      
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
+  <div id="messageListWrapper">
+    <p id="noMessages">
+      Ucapan & doa akan tampil di sini
+    </p>
+    <div id="messageList" class="fade-in"></div>
+  </div>
+</section>
+
+
+<!-- Section 8: Gift -->
+<!-- <section class="section" id="section8">
+  <div class="section8-content">
+      <div class="lottie-container-gift fade-in" id="lottie-gift"></div>
+      <h2 class="fade-in">Gift</h2>
+      <p class="fade-in">If you wish to bless us with a gift, here is the bank account number:</p>
+      <button id="showAccountButton" class="fade-in">Show</button> -->
+
+      <!-- Hidden Bank Account Number -->
+      <!-- <div id="bankAccountContainer" style="display: none;">
+        <p>Bank Account: <span id="bankAccountNumber">1234567890</span></p>
+        <button id="copyButton">Copy</button>
+      </div>
+  </div>
+</section> -->
+
+<!-- Section 9: Thank You -->
+<section class="section" id="section9">
+  <div class="section9-content">
+    <div class="lottie-container-thankyou fade-in" id="lottie-thankyou"></div> <!-- Lottie animation for the title -->
+    <h2 class="fade-in">Thank You</h2>
+    <p class="fade-in">We are incredibly grateful that you could be a part of this special moment. Your presence means the world to us, and we sincerely thank you for taking the time to celebrate with us.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="logo fade-in">
+      <img src="nc logo.png" alt="Logo" />
+    </div>
+    <div class="social-media">
+      <a href="https://www.facebook.com" target="_blank" class="social-icon fade-in"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon fade-in"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/your-number" target="_blank" class="social-icon fade-in"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.yourwebsite.com" target="_blank" class="social-icon fade-in"><i class="fas fa-globe"></i></a>
+    </div>
+  </div>
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

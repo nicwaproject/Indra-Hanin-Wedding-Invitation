@@ -1,0 +1,979 @@
+/* Define custom properties in :root */
+:root {
+  --section-1: url('section1.jpeg');
+  --cover-image: url('cover.jpeg');
+  --primary-color: #C8A995;
+  --secondary-color: #474E4B;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --white-overlay: rgba(255, 255, 255, 0.5);
+  --primary-font: "Dancing Script", cursive;
+  --secondary-font: "Roboot Slab", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+/* Animasi */
+/* Efek awal (sembunyikan elemen) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* Efek saat elemen muncul di layar */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ............COVER................ */
+#cover {
+  position: relative;
+  background-image: var(--cover-image);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+}
+
+#cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Warna overlay (hitam transparan) */
+  z-index: 1; /* Agar overlay tetap di belakang teks */
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2; /* Agar teks muncul di atas overlay */
+}
+
+.cover-content h1 {
+  font-size: 2.6rem;
+  color: #fff;
+}
+
+.cover-content p {
+  color: white;
+}
+
+#guestName {
+  font-size: 1.3rem;
+}
+
+.cover-content button {
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 3s infinite; /* Terapkan animasi */
+}
+
+#invitation {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+}
+
+#invitation.active {
+  display: block;
+}
+
+#invitation::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('image2.jpeg') center/cover no-repeat;
+  z-index: -1;
+}
+
+.separator-cover {
+  width: 2px;
+  height: 60px; /* Sesuaikan tinggi separator */
+  margin: 20px auto; /* Agar separator berada di tengah */
+  background-color: white;
+}
+
+
+/* NAVIGASI */
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f3f3f3;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px; /* Jarak antar ikon */
+  justify-content: center;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 20px; /* Ukuran ikon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #C0C5D2; /* Warna teks saat hover */
+}
+
+/* Tambahan untuk ikon play/pause */
+#playPauseButton {
+  cursor: pointer;
+}
+/* Style for other sections */
+.section {
+  padding: 50px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.section p {
+  max-width: 600px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Section 1 with background image and overlay */
+#section1 {
+  position: relative;
+  background-image: var(--section-1); /* Use the custom property */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  z-index: 2;
+}
+
+#section1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Warna overlay hitam dengan transparansi */
+  z-index: -1;
+}
+
+#section1 > * {
+  position: relative;
+  z-index: 2;
+}
+
+#section1 h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+#section1 h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: var(--primary-font);
+}
+
+.section1-content {
+  margin-bottom: 80px;
+}
+
+
+/* ...................................SECTION 2.............................. */
+#section2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  color: white;
+  padding: 40px 20px
+}
+
+.invitation-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 30px 20px;
+  border-radius: 10px;
+  border-top: 2px solid white; /* Border atas */
+  border-bottom: 2px solid white; /* Border bawah */
+  box-sizing: border-box;
+}
+
+#section2 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: var(--primary-font);
+}
+
+#section2 p {
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-box span:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.time-box span:last-child {
+  font-size: 1rem;
+  color: white;
+}
+
+/* Section 3: The Bride and The Groom Profile */
+#section3 {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  color: white;
+  background-color: var(--overlay-bg);
+  max-width: 350px;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  border-top: 2px solid white; /* Border atas */
+  border-bottom: 2px solid white; /* Border bawah */
+}
+.lottie-container-profile {
+  width: 50px; /* Ukuran animasi lebih kecil */
+  height: auto;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section3 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+  font-family: var(--primary-font);
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Penataan elemen secara vertikal */
+  flex-wrap: wrap; /* Mengizinkan elemen untuk membungkus ke baris berikutnya */
+  gap: 100px; /* Jarak antar profile */
+}
+
+.profile {
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center; /* Memusatkan teks */
+  color: white;
+  border-top: 2px solid white; /* Border atas */
+  border-bottom: 2px solid white; /* Border bawah */
+}
+
+.profile-photo {
+  width: 100%; /* Mengisi lebar kontainer */
+  border-radius: 8px; /* Sudut membulat untuk foto */
+}
+
+.name {
+  font-size: 1.7rem; /* Ukuran huruf untuk nama */
+  margin: 10px 0; /* Jarak antara nama dan informasi orang tua */
+}
+
+.parents {
+  display: flex;
+  justify-content: space-between; /* Memisahkan nama bapak dan ibu */
+  align-items: center;
+  font-size: 1rem; /* Ukuran huruf untuk nama orang tua */
+  margin: 10px 0; /* Jarak antara orang tua dan tombol */
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.separator-parents {
+  width: 1px; /* Lebar separator */
+  height: 30px; /* Tinggi separator yang lebih panjang */
+  background-color: white; /* Warna separator */
+  margin: 20px 0; /* Jarak horizontal di kedua sisi separator */
+}
+
+.instagram-button {
+  display: inline-block;
+  margin-top: 10px; /* Jarak antara nama orang tua dan tombol */
+  padding: 10px 20px; /* Padding tombol */
+  background-color: var(--primary-color); /* Warna latar belakang tombol Instagram */
+  color: white; /* Warna teks tombol */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  border-radius: 5px; /* Sudut membulat */
+  font-size: 1rem; /* Ukuran huruf tombol */
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 3s infinite; /* Terapkan animasi */
+}
+
+.instagram-button:hover {
+  background-color: #f3f3f3; /* Warna saat hover */
+  color: var(--primary-color);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+/* Section 4: Akad dan Resepsi */
+#section4 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+#section4 .lottie-container-ceremony,
+#section4 .lottie-container-reception {
+  width: 100px; /* Ukuran animasi lebih kecil */
+  height: 100px;
+  margin: 0 auto 10px; /* Jarak animasi ke judul */
+}
+
+.section-title h2 {
+  font-family: var(--primary-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.event-details {
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center; /* Memusatkan teks */
+  color: white;
+  border-top: 2px solid white; /* Border atas */
+  border-bottom: 2px solid white; /* Border bawah */
+}
+
+.event-details h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.date {
+  margin-bottom: 10px; /* Jarak antara tanggal dan lokasi */
+}
+
+.day {
+  font-size: 1.2rem; /* Ukuran huruf untuk hari */
+  margin-right: 10px; /* Jarak antara hari dan bulan/tanggal */
+}
+
+.month-date-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+}
+
+.month-date {
+  font-size: 1.7rem; /* Ukuran huruf untuk bulan dan tanggal */
+  margin-right: 25px; /* Jarak antara bulan/tanggal dan separator */
+}
+
+.separator {
+  width: 1px; /* Lebar separator */
+  height: 80px; /* Tinggi separator yang lebih panjang */
+  background-color: white; /* Warna separator */
+  margin: 20px 0; /* Jarak horizontal di kedua sisi separator */
+}
+
+.time {
+  font-size: 1.7rem; /* Ukuran huruf untuk jam */
+  margin-left: 20px;
+}
+
+.location {
+  font-size: 1.2rem; /* Ukuran huruf untuk lokasi */
+  color: white; /* Warna teks lokasi */
+}
+
+/* Tombol Akses Peta */
+.map-button {
+  display: inline-block;
+  margin-top: 20px; /* Jarak antara lokasi dan tombol */
+  padding: 10px 20px; /* Padding tombol */
+  background-color: var(--primary-color); /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  border-radius: 5px; /* Sudut membulat */
+  font-size: 1rem; /* Ukuran huruf tombol */
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 3s infinite; /* Terapkan animasi */
+}
+
+.map-button:hover {
+  color: var(--primary-color); /* Warna saat hover */
+  background-color: #f3f3f3;
+}
+
+/* Section 5: Ayat Al-Qur'an and Translation */
+#section5 {
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+#section5 .lottie-container-quran {
+  width: 250px; /* Ukuran animasi lebih kecil */
+  height: auto;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section5 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.quran-content {
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center; /* Memusatkan teks */
+  color: white;
+  border-top: 2px solid white; /* Border atas */
+  border-bottom: 2px solid white; /* Border bawah */
+}
+
+.arabic-text {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  font-family: "Lateef", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.translation-text {
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.surah {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  color: white;
+  padding: 6px;
+}
+
+/* Section 6: Gallery like Pinterest */
+#section6 {
+  text-align: center;
+  padding: 100px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#section6 .lottie-container-gallery {
+  width: 140px; /* Ukuran animasi lebih kecil */
+  height: 140px;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section6 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 15px;
+  justify-items: center;
+}
+
+.gallery-item {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-grid img:nth-child(1),
+.gallery-grid img:nth-child(4),
+.gallery-grid img:nth-child(5),
+.gallery-grid img:nth-child(6) {
+  grid-column: span 2;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  position: relative;
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 80%;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  color: #ccc;
+}
+
+/* Section 7: RSVP and Messages */
+#section7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#section7 .lottie-container-rsvp {
+  width: 80px; /* Ukuran animasi lebih kecil */
+  height: 80px;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section7 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: white;
+}
+
+#rsvpForm {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#rsvpForm .form-group {
+  margin-bottom: 20px;
+}
+
+#rsvpForm input, #rsvpForm textarea, #rsvpForm select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--overlay-bg);
+  color: white;
+}
+
+/* Gaya placeholder pada input dan textarea */
+input::placeholder,
+textarea::placeholder {
+    color: white; /* Warna teks */
+}
+
+label {
+  font-weight: bold;
+  color: white; /* Warna teks */
+  display: block; /* Biar tidak sejajar dengan input */
+  margin-bottom: 15px;
+}
+
+#rsvpForm button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 3s infinite; /* Terapkan animasi */
+}
+
+#rsvpForm button:hover {
+  background-color: #f3f3f3;
+  color: var(--primary-color);
+}
+
+#messageListWrapper {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  background-color: var(--overlay-bg);
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 20px;
+}
+
+.message-item {
+  width: 100%;
+  max-width: 500px;
+}
+#messageList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#messageList .message-item {
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: white;
+}
+
+.message-top {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.message-author {
+  font-size: 17px;
+}
+.message-time {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #eaeaea;
+}
+
+.message-content {
+  font-size: 13px;
+}
+
+.message-attendance {
+  font-size: 10px;
+  color: #eaeaea;
+}
+
+label {
+  color: var(--overlay-bg);
+}
+
+
+#noMessages {
+ color: var(--primary-color);
+}
+
+/* Section 8: Gift */
+#section8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section8-content {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#section8 .lottie-container-gift {
+  width: 120px; /* Ukuran animasi lebih kecil */
+  height: 120px;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section8 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#section8 p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#showAccountButton, #copyButton {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease-in-out;
+  animation: pulse 3s infinite; /* Terapkan animasi */
+}
+
+#showAccountButton:hover, #copyButton:hover {
+  background-color: #f3f3f3;
+  color: var(--primary-color);
+}
+
+#bankAccountContainer {
+  margin-top: 20px;
+}
+
+/* Section 9: Thank You */
+#section9 {
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section9-content {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--overlay-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#section9 .lottie-container-thankyou {
+  width: 150px; /* Ukuran animasi lebih kecil */
+  height: 150px;
+  margin: 0 auto 20px; /* Jarak animasi ke judul */
+}
+
+#section9 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#section9 p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin: 0 auto; /* Center the paragraph */
+}
+
+
+/* Footer */
+footer {
+  background-color: white; /* Warna latar belakang footer */
+  color: #333;
+  padding-bottom: 50px;
+  padding-top: 15px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 40px; /* Atur tinggi logo */
+}
+
+.social-media {
+  display: flex;
+}
+
+.social-icon {
+  color: var(--primary-color); /* Warna ikon */
+  font-size: 24px; /* Ukuran ikon */
+  margin-left: 15px; /* Jarak antar ikon */
+  text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+.social-icon:hover {
+  color: var(--secondary-color); /* Warna saat hover */
+}
+
+/* Media Query for Mobile (Max Width 768px) */
+@media (max-width: 768px) {
+  #section4 {
+    flex-direction: column;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di perangkat mobile */
+  }
+  
+  .gallery-item {
+    width: 100%; /* Pastikan gambar tetap 100% dari kolom yang tersedia */
+  }
+
+  .corner-image {
+    width: 220px;
+  }
+}
