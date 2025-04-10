@@ -769,7 +769,6 @@ label {
 
 #messageListWrapper {
   width: 100%;
-  max-width: 350px;
   padding: 20px;
   background-color: var(--overlay-bg);
   margin-top: 40px;
